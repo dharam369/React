@@ -44,8 +44,9 @@ export const addBank = async (bankName,abbrevation,branch,ifsc) => {
 }
 
 
-export const updateBank = async (bankName,abbrevation,branch,ifsc) => {
+export const updateBank = async (bankId,bankName,abbrevation,branch,ifsc) => {
     let response = await axios.put(`http://localhost:8084/bankapp/updateBank`, {
+        bankId,
     bankName,
 	abbrevation,
 	branch,
@@ -60,16 +61,15 @@ export const updateBank = async (bankName,abbrevation,branch,ifsc) => {
 }
 
 
-export const deleteAccount = async (accountNumber) => {
+export const deleteBank = async (bankId) => {
+
     let response = await axios.delete(`http://localhost:8084/bankapp/deleteBank`, {
         params:{
-            accountNumber:accountNumber
-        }
-    },
-    {
-        headers: {
+            bankId: bankId
+        },headers: {
             Authorization:'Bearer '+localStorage.getItem('auth')
         }
+        
     })
     return response
 }

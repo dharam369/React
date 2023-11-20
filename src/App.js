@@ -16,6 +16,7 @@ import AllBank from './component/AllBank'
 import {Route, Routes } from 'react-router-dom';
 import AdminDashboard from './component/AdminDashboard';
 import CustomerDashboard from './component/customerdashboard';
+import EditCustomer from './component/EditCustomer';
 
 function App() {
   const [data,setData]=useState()
@@ -45,6 +46,7 @@ function App() {
       <Route exact path="/getallbanks" element={<AllBank/>}/>
       <Route exact path="/admindashboard" element={<AdminDashboard/>}/>
       <Route exact path="/customerdashboard" element={<CustomerDashboard/>}/>
+
       
     </Routes>
   

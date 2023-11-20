@@ -26,3 +26,19 @@ export const addCustomer = async (name,surname,mobile,email,userName,password) =
     })
     return response
 }
+
+export const updateCustomer = async (customerId,firstName,lastName,mobile,email) => {
+    let response = await axios.put(`http://localhost:8084/bankapp/addCustomer`, {
+        customerId,
+    firstName,
+    lastName,
+    mobile,
+    email
+    },
+    {
+        headers: {
+            Authorization:'Bearer '+localStorage.getItem('auth')
+        }
+    })
+    return response
+}

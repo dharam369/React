@@ -3,7 +3,7 @@ import { useContext } from 'react'
 import { TableContext } from './FinalTable'
 
 let headerdata=<></>
-function Table({data}) {
+function Table() {
     const obj=useContext(TableContext)
     if(obj.data){
         console.log("data=="+obj.data)
@@ -26,8 +26,14 @@ function Table({data}) {
                             )
                         })
                     }
-                    <td><button className='btn btn-secondary'>Update</button></td>
-                    <td><button className='btn btn-danger'>Delete</button></td>
+                    {obj.isupdate&&<td><button className='btn btn-secondary' onClick={
+                        ()=>{obj.updatefunc(value)}
+                        }>
+                            Update</button></td>}
+                    {obj.isdelete&&<td><button className='btn btn-danger'onClick={
+                        ()=>{obj.deletefunc(value)}
+                        }>
+                        Delete</button></td>}
                 </tr>
             )
         })
